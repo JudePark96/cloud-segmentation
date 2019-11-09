@@ -15,7 +15,7 @@ processed_dataset_dir = './satellite_dataset/preprocess_images'
 (height, width)
 '''
 original_size = (1400, 2100)
-new_size = (384, 576)  # ResNet
+new_size = (350, 525)  # ResNet
 interpolation = cv2.INTER_CUBIC
 
 df = pd.read_csv(os.path.join(dataset_dir, 'train.csv'))
@@ -32,7 +32,7 @@ for idx, row in tqdm(df.iterrows()):
         rle = mask2rle(mask)
         df.at[idx, 'EncodedPixels'] = rle
 
-df.to_csv(os.path.join(dataset_dir, '384_576_train.csv'), index=False)
+df.to_csv(os.path.join(dataset_dir, '350_525_train.csv'), index=False)
 
 
 # Resizing Train and Test Images
